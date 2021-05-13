@@ -107,7 +107,17 @@ class SinglyLinkedList
   end
 
   # Bonus: .map, .reduce, .select, .reject
+  # These were acheived by adding "include Enumerable"
+
   # Bonus: .at_index(3) # equivalent to bros[3]
+  def at_index(num)
+    current_node = @head
+    for i in 0..num-1
+      current_node = current_node.next
+    end
+    return current_node.value
+  end
+
 end
 
 # Test data
@@ -116,8 +126,22 @@ list.append(2);
 list.append(3);
 list.append(4);
 
+# Test functions
 list.each do |node|
   puts node
 end
+
+list.map do |node|
+  puts node
+end
+
+total = list.reduce(0){ |num1, num2| num1 + num2}
+puts total
+
+even_list = list.select { |num| num.even? }
+puts even_list
+
+odd_list = list.reject { |num| num.even? }
+puts odd_list
 
 binding.pry
