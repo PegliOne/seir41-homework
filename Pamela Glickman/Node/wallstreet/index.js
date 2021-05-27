@@ -23,10 +23,13 @@ app.get('/results', (req,res) => {
   // Converted date into a YYYY-MM-DD string to match API
   const dateString = date.toISOString().substring(0, 10);
   axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stock}&apikey=2AQT1W7TYFOJQLB5`).then((response) => {
+    // Finds the name of the stock
+    // TODO: Find another API that gives stock names
+    const name = ""
     // Finds the price the stock closed at
     const price = Number(response.data["Time Series (Daily)"][`${dateString}`]["4. close"])
     // Render the page
-    res.render('results.ejs', { stock: stock, price: price.toFixed(2) });
+    res.render('results.ejs', { name: name, stock: stock, price: price.toFixed(2) });
   })
 })
 

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Stock Lookup - Node.js Version </title>
-  </head>
+  <%- include('partials/head') %>
   <body>
+    <%- include('partials/header') %>
 
-    <h1>Stock Lookup</h1>
-
-    <p><%= stock %> closed at $<%= price %></p>
+    <p><%= name %> <%= stock %> closed at $<%= price %></p>
 
   </body>
 </html>

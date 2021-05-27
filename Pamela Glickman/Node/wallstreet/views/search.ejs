@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Stock Lookup - Node.js Version </title>
-  </head>
+  <%- include('partials/head') %>
   <body>
-
-    <h1>Stock Lookup</h1>
+    <%- include('partials/header') %>
 
     <form action="/results">
-      <label for="stock"></label>
+      <label for="stock">Enter stock code: </label>
       <input id="stock" type="text" name="stock" value="FB">
 
       <input type="submit">
