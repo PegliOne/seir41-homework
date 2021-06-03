@@ -12,7 +12,7 @@ const getBook = function() {
   const input = text_input.value
   // Create and send HTTP request
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', `https://www.googleapis.com/books/v1/volumes?q=title:${ input }`)
+  xhr.open('GET', `https://www.googleapis.com/books/v1/volumes?q=title:${ input }`);
   xhr.send();
 
   // When the response is ready

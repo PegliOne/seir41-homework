@@ -3,8 +3,10 @@ const displayCurrency = function() {
     const base = $('#base').val();
     const amount = $('#amount').val();
     const target = $('#target').val();
-    $.ajax(`https://api.ratesapi.io/api/latest?base=${base}`).done(function (results) {
-      const convertedAmount = results.rates[target] * amount;
+    $.ajax(`http://data.fixer.io/api/latest?access_key=6710447bd2d15946872fb285dc67ed48`).done(function (results) {
+      const baseFactor = results.rates[base];
+      const targetFactor = results.rates[target];
+      const convertedAmount = (targetFactor * amount) / baseFactor;
       $('#converted-amount').text(`${convertedAmount.toFixed(2)} ${target}`);
     });
 }
